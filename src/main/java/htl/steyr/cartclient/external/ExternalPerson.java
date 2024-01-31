@@ -1,2 +1,4 @@
-package htl.steyr.cartclient.external;public interface ExternalPerson {
+package htl.steyr.cartclient.external;
+
+public interface ExternalPerson {
 }
