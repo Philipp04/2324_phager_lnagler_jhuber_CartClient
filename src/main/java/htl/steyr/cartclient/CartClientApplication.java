@@ -1,0 +1,13 @@
+package htl.steyr.cartclient;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CartClientApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(CartClientApplication.class, args);
+    }
+
+}
