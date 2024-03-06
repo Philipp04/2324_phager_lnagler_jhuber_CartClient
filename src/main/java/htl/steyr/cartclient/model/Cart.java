@@ -20,7 +20,7 @@ public class Cart {
     @OneToOne
     @JoinColumn(name="user_id")
     @NonNull
-    User cart;
+    User user;
 
     @OneToMany(mappedBy = "cart")
     ArrayList<CartProduct> products;

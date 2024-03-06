@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 
 @Entity
 @Table (name="product")
@@ -20,5 +19,13 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    @Column(name="name")
+    String name;
+
+    @Column(name="description")
+    String description;
+
+    @Column(name="price")
+    int price;
 
 }
