@@ -1,4 +1,4 @@
 package htl.steyr.cartclient.dto.response;
 
-public record CartProductResponseDto(Long amount, ProductResponseDto product) {
+public record CartProductResponseDto(int amount, ProductResponseDto product) {
 }

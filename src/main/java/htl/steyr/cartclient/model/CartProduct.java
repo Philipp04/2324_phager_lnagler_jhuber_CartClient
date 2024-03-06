@@ -16,7 +16,7 @@ public class CartProduct {
     Long id;
 
     @Column(name="amount")
-    Long amount;
+    int amount;
 
     @ManyToOne
     @JoinColumn(name="cart_id")

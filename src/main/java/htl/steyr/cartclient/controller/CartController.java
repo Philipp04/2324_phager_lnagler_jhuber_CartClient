@@ -1,9 +1,11 @@
 package htl.steyr.cartclient.controller;
 
 import htl.steyr.cartclient.dto.request.ProductRequestDto;
+import htl.steyr.cartclient.dto.request.RemoveCartProductDto;
 import htl.steyr.cartclient.dto.response.CartProductResponseDto;
 import htl.steyr.cartclient.dto.response.ProductResponseDto;
 import htl.steyr.cartclient.external.ExternalPerson;
+import htl.steyr.cartclient.external.ExternalStock;
 import htl.steyr.cartclient.model.User;
 import htl.steyr.cartclient.service.CartService;
 import jakarta.ws.rs.Path;
@@ -61,6 +63,28 @@ public class CartController {
             User user = externalPerson.getUser(cartService.getBearerToken());
             cartService.addToCart(user, productRequestDto);
             return new ResponseEntity<>("Added to Cart", HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>("Something went wrong", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/remove")
+    public ResponseEntity<String> removeFromCart(@RequestBody RemoveCartProductDto removeCartProductDto){
+        try{
+            User user = externalPerson.getUser(cartService.getBearerToken());
+            cartService.removeFromCart(user, removeCartProductDto);
+            return new ResponseEntity<>("Removed from Cart", HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>("Something went wrong", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/clear")
+    public ResponseEntity<String> clearCart(){
+        try{
+            User user = externalPerson.getUser(cartService.getBearerToken());
+            cartService.clearCart(user);
+            return new ResponseEntity<>("Cart cleared", HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>("Something went wrong", HttpStatus.BAD_REQUEST);
         }

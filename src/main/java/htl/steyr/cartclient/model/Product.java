@@ -10,7 +10,6 @@ import lombok.Setter;
 @Entity
 @Table (name="product")
 @NoArgsConstructor
-@RequiredArgsConstructor
 @Setter
 @Getter
 public class Product {
