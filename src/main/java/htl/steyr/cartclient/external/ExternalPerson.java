@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient("person")
 public interface ExternalPerson {
-    @GetMapping("/api/person/GetUserByToken/{token}")
+    @GetMapping("/person/{token}")
     User getUser(@PathVariable String token);
 }
